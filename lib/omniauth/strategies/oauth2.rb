@@ -40,6 +40,7 @@ module OmniAuth
         hash = {"token" => access_token.token}
         hash.merge!("refresh_token" => access_token.refresh_token) if access_token.expires? && access_token.refresh_token
         hash.merge!("expires_at" => access_token.expires_at) if access_token.expires?
+        hash.merge!("expires_in" => access_token.expires_in) if access_token.expires?
         hash.merge!("expires" => access_token.expires?)
         hash
       end
